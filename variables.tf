@@ -14,9 +14,9 @@ variable "groups" {
   description = "List of IAM group names this user should be added to"
 }
 
-variable "policies" {
-  type        = list(any)
-  description = "List of ARNs of the IAM policies to attach to this user"
+variable "policy" {
+  type        = string
+  description = "Inline IAM policy to attach to the user"
 }
 
 variable "pgp_key" {

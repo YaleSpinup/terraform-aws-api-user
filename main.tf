@@ -10,10 +10,10 @@ resource "aws_iam_user_group_membership" "attach_groups" {
   groups = var.groups
 }
 
-resource "aws_iam_user_policy_attachment" "attach_policies" {
-  user       = aws_iam_user.user.name
-  for_each   = toset(var.policies)
-  policy_arn = each.value
+resource "aws_iam_user_policy" "inline_policy" {
+  name   = "inline_policy"
+  user   = aws_iam_user.user.name
+  policy = var.policy
 }
 
 resource "aws_iam_access_key" "key" {
