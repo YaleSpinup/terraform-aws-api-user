@@ -12,11 +12,19 @@ variable "path" {
 variable "groups" {
   type        = list(any)
   description = "List of IAM group names this user should be added to"
+  default = []
+}
+
+variable "create_policy" {
+  description = "Create IAM inline policy for the user?"
+  type        = bool
+  default     = false
 }
 
 variable "policy" {
   type        = string
   description = "Inline IAM policy to attach to the user"
+  default = null
 }
 
 variable "pgp_key" {

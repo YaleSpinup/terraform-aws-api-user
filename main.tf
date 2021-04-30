@@ -11,6 +11,8 @@ resource "aws_iam_user_group_membership" "attach_groups" {
 }
 
 resource "aws_iam_user_policy" "inline_policy" {
+  count = var.create_policy ? 1 : 0
+
   name   = "inline_policy"
   user   = aws_iam_user.user.name
   policy = var.policy

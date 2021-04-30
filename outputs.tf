@@ -3,7 +3,7 @@ output "access_key_id" {
   description = "access key id"
 }
 
-output "access_key_secret" {
+output "access_key_secret_encrypted" {
   value       = aws_iam_access_key.key.encrypted_secret
   description = "encrypted access key secret"
 }
